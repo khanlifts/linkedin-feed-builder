@@ -19,7 +19,7 @@ import "@mantine/core/styles.css"
 import "~styles/mantine-override.css"
 
 export const config: PlasmoCSConfig = {
-  matches: ["https://www.plasmo.com/*"]
+  matches: ["https://www.linkedin.com/*"],
 }
 
 export const getStyle: PlasmoGetStyle = () => {
@@ -29,7 +29,7 @@ export const getStyle: PlasmoGetStyle = () => {
 }
 
 export const getInlineAnchorList: PlasmoGetInlineAnchorList = async () =>
-  document.querySelectorAll(`button`)
+  document.querySelectorAll(`asdf`)
 
 const PlasmoInline: FC<PlasmoCSUIProps> = ({ anchor }) => {
   return (
