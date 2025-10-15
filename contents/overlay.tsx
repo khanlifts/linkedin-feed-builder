@@ -1,6 +1,4 @@
-import { Button } from "@mantine/core";
-import mantineCssText from "data-text:@mantine/core/styles.css";
-import mantineOverrideCssText from "data-text:~styles/mantine-override.css";
+import styleText from "data-text:~/contents/overlay.scss";
 import type {
   PlasmoCSConfig,
   PlasmoGetInlineAnchor,
@@ -24,7 +22,7 @@ export const getInlineAnchor: PlasmoGetInlineAnchor = async () => ({
 
 export const getStyle: PlasmoGetStyle = () => {
   const style = document.createElement("style")
-  style.textContent = mantineCssText + mantineOverrideCssText
+  style.textContent = styleText
   return style
 }
 
@@ -32,9 +30,7 @@ function PlasmoOverlay() {
   setMantineColorScheme("light")
   return (
     <ThemeProvider>
-        <Button variant="outline" size="xl" radius="lg">
-          Add to FeedBuilder
-        </Button>
+      <button className="button">Add to FeedBuilder</button>
     </ThemeProvider>
   )
 }
