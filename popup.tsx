@@ -1,8 +1,9 @@
 import { Stack, Text } from "@mantine/core"
 import { useState } from "react";
 import "@mantine/core/styles.css";
+import { ListEnterItem } from "components/ListEnterItem";
+import { ListItemCard } from "components/ListItemCard";
 import { ThemeProvider } from "~theme";
-import { ListEnterItem } from "components/ListEnterItem"
 
 function IndexPopup() {
   const [data, setData] = useState("")
@@ -21,6 +22,9 @@ function IndexPopup() {
           data={data}
         >
         </ListEnterItem>
+      </Stack>
+      <Stack miw={450} p="lg">
+        <ListItemCard></ListItemCard>
       </Stack>
     </ThemeProvider>
   )
