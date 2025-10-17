@@ -13,6 +13,7 @@ import { setMantineColorScheme } from "~utils";
 
 export const config: PlasmoCSConfig = {
   matches: ["https://www.linkedin.com/*"],
+  all_frames: true
 }
 
 export const getInlineAnchor: PlasmoGetInlineAnchor = async () => ({
