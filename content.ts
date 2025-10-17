@@ -39,13 +39,50 @@ function onNavigationChange(callback: (url: string) => void) {
   })
 }
 
+const getLinkedInMemberId = (url: string): string | null | void => {
+  const profilePublicId = url.split("/in/")[1]?.split("/")[0]
+  console.log('profilePublicId:', profilePublicId)
+
+  const codeEls = [...document.querySelectorAll("code")]
+  console.log('codeEls:', codeEls)
+
+/*
+  const target = codeEls.find((el) =>
+    el.textContent.includes("fs_miniProfile")
+  )
+  if (!target) return null
+
+  try {
+    const json = JSON.parse(target.textContent)
+    const included = json?.included ?? []
+
+    const profile = included.find(
+      (p) =>
+        p.publicIdentifier === profilePublicId &&
+        p.entityUrn?.startsWith("urn:li:fs_miniProfile:")
+    )
+
+    return profile?.entityUrn?.split(":").pop() || null
+  } catch {
+    return null
+  }*/
+}
+
 function initOverlay(url: string) {
   // Deine Initialisierung hier
   console.log("🔁 URL change detected:", url)
-  // Hier z. B. neue URN holen oder Overlay rendern
+
+  const memberId = getLinkedInMemberId(url)
 }
 
 // Direkt beim Start aufrufen
 onNavigationChange((url) => {
   initOverlay(url)
 })
+
+// Also apply when DOM is ready (backup)
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    // Use the same safe approach
+  })
+}
